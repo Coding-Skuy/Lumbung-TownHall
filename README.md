@@ -1,40 +1,44 @@
-# Lumbung-TownHall 🌾
+> Versi: v1.0.0 | Status: disetujui | Menggantikan: -
 
-Ruang diskusi terbuka Divisi Lumbung — hulu PT ChefGenie: agregasi panen hortikultura dari petani mitra dan distribusi ke dapur serta pasar. Satu PT ChefGenie, Lumbung adalah divisi hulu; monetisasi tunggal berupa fee logistik murni per kg/trip dengan harga transparan. Komoditas hari-1: cabai rawit merah, bawang merah, kangkung. Sukses = keadilan harga: adil bagi petani, stabil bagi konsumen.
+# Lumbung-TownHall — Divisi Hulu (Supply & Distribution) PT ChefGenie
 
-## Peta Folder (Varian 1: folder = sub-segmen kerja)
+## Peran Lumbung
 
-- `agregasi/` — piagam, SOP sortir-grading, kontrak mini musim.
-  - `agregasi/00-piagam-agregasi.md`, `agregasi/10-sop-sortir-grading.md`, `agregasi/20-kontrak-mini-musim.md`
-- `distribusi/` — desain rute-trip, SOP trip harian, armada-kemasan.
-  - `distribusi/10-desain-rute-trip.md`, `distribusi/20-sop-trip-harian.md`, `distribusi/30-armada-kemasan.md`
-- `keuangan/` — model fee per kg, papan harga mingguan.
-  - `keuangan/10-model-fee-per-kg.md`, `keuangan/20-papan-harga-mingguan.md`
-- `platform/` — matriks KMP-desktop-web, Navigation3, desktop Windows gudang, mobile KMP, web Bun+Svelte, offline-sinkron.
-  - `platform/10-matriks-KMP-desktop-web.md`, `platform/20-navigasi3.md`, `platform/30-desktop-windows-gudang.md`, `platform/40-mobile-KMP.md`, `platform/50-web-bun-svelte.md`, `platform/60-offline-sinkron.md`
-- `produk/` — alur pesan-pasok, model data, kontrak API per konsumen, modul KMP bersama, autentikasi perangkat.
-  - `produk/10-alur-pesan-pasok.md`, `produk/20-model-data.md`, `produk/30-kontrak-api-KMP-mobile.md`, `produk/31-kontrak-api-desktop-windows.md`, `produk/32-kontrak-api-web-bun.md`, `produk/40-modul-KMP-bersama.md`, `produk/50-autentikasi-perangkat.md`
-- `metrik/` — keadilan harga, susut dan SLA.
-  - `metrik/10-keadilan-harga.md`, `metrik/20-susut-dan-sla.md`
-- `roadmap/` — pilot hortikultura 90 hari.
-  - `roadmap/10-pilot-hortikultura.md`
+Lumbung adalah divisi hulu PT ChefGenie: agregasi panen hortikultura dari petani mitra dan distribusi ke dapur serta pasar. Fokus Lumbung-first: cabai rawit merah, bawang merah, sayur daun (diwakili kangkung). Skala pilot: 40 petani mitra dalam radius 25 km, serapan 2 ton per hari. Sukses = keadilan harga: adil bagi petani, stabil bagi konsumen. Monetisasi tunggal: fee logistik transparan Rp1.500 per kg untuk rute kurang dari 15 km dan Rp2.500 per kg untuk rute 15 sampai 25 km, ditagih ke pembeli, tidak dipotong dari petani. Susut total ditargetkan di bawah 5 persen rata-rata tertimbang. Basis data: DB lumbung. Autentikasi: JWT akses 15 menit ditambah refresh 7 hari ditambah API key perangkat ditambah service key antar layanan.
 
-Mulai dari `agregasi/00-piagam-agregasi.md`, lalu `roadmap/10-pilot-hortikultura.md` untuk gambaran pilot.
+## Peta Versi Aktif
 
-## Stack Terkunci
+- Versi aktif: v1.0.0 (disetujui). Isi beku ada di `versions/v1.0.0/`.
+- `versions/v1.0.0/CHANGELOG.md` — ringkasan versi awal.
+- `versions/v1.0.0/BRD/` — kebutuhan bisnis BR-001 dan seterusnya.
+- `versions/v1.0.0/PRD/` — pengguna dan kriteria US-001 dan seterusnya.
+- `versions/v1.0.0/FRD/` — kebutuhan fungsional FR-001 dan seterusnya.
+- `versions/v1.0.0/FSD/` — rancangan alur, model data Panen, Lot, Trip, Timbangan, Fee, dan kontrak API.
+- `versions/v1.0.0/SNAPSHOT-ROADMAP.md` — salinan beku janji v1.0.0.
+- Peta hidup lintas versi ada di `roadmap/`: `TIMELINE.md`, `MILESTONE.md`, `ROADMAP.md`.
 
-- Mobile + Desktop: Kotlin Multiplatform + Compose Multiplatform + Navigation3. Desktop target Windows x64 (MSIX, offline-first SQLite/SQLDelight, printer thermal, timbangan USB/serial) wajib hari-1; mobile Android + iOS.
-- Web: Bun 1.4.x + Svelte 5 + SvelteKit 2 + TypeScript 5.9.x.
-- Backend tunggal: [Lumbung-Backend](https://github.com/Coding-Skuy/Lumbung-Backend) — kontrak API dipisah per konsumen (`produk/30-*`, `produk/31-*`, `produk/32-*`).
+## Cara Baca History
 
-## TownHall Lain (PT ChefGenie)
+1. Mulai dari `versions/v1.0.0/CHANGELOG.md` untuk ringkasan versi.
+2. Lanjut ke `versions/v1.0.0/BRD/00-ikhtisar.md` untuk konteks bisnis, lalu `PRD/10-pengguna.md` untuk peran.
+3. Untuk janji waktu itu, baca `versions/v1.0.0/SNAPSHOT-ROADMAP.md` yang sudah dibekukan dan tidak diubah lagi.
+4. Untuk kondisi terkini lintas versi, baca `roadmap/TIMELINE.md` dan `roadmap/MILESTONE.md`.
+5. Riwayat perubahan antar versi dilacak lewat `git log` dan `CHANGELOG.md` tiap versi. File lama sengaja dihapus setelah dipindah dengan `git mv` agar tidak ada dua sumber kebenaran.
 
-- [ChefGenie-TownHall](https://github.com/Coding-Skuy/ChefGenie-TownHall) — induk PT ChefGenie.
-- [Pawonee-TownHall](https://github.com/Coding-Skuy/Pawonee-TownHall) — dapur/pengolahan (pembeli utama Lumbung).
-- [Pasaree-TownHall](https://github.com/Coding-Skuy/Pasaree-TownHall) — pasar/penjualan.
-- [Pedaree-TownHall](https://github.com/Coding-Skuy/Pedaree-TownHall) — pengantar/last-mile.
-- [TitipO-TownHall](https://github.com/Coding-Skuy/TitipO-TownHall) — titip dan kemitraan.
+## TownHall Lain dan Pedoman Induk
 
-## Kontribusi
+Pedoman induk: https://github.com/Coding-Skuy/ChefGenie-TownHall.
 
-Repo terbuka: usulan bisnis maupun koreksi kecil dipersilakan via pull request ke `main`. Setiap dokumen mencantumkan pemilik, keputusan konkret berangka, dan tautan ke file terkait — tanpa placeholder.
+Lima TownHall lain yang meniru pola template emas ini:
+
+- https://github.com/Coding-Skuy/Pawonee-TownHall — dapur dan pengolahan, pembeli utama Lumbung.
+- https://github.com/Coding-Skuy/Pasaree-TownHall — pasar dan penjualan.
+- https://github.com/Coding-Skuy/Pedaree-TownHall — pengantar dan last-mile.
+- https://github.com/Coding-Skuy/TitipO-TownHall — titip dan kemitraan.
+- https://github.com/Coding-Skuy/Titeny-TownHall — ketelitian dan audit mutu.
+
+Pola yang ditiru: penamaan `versions/vX.Y.Z/BRD|PRD|FRD|FSD/`, file `NN-nama-kebab.md`, header versi satu baris, dan bagian Batasan di tiap file.
+
+## Batasan
+
+Batasan ruang lingkup repo ini: hanya agregasi hortikultura, distribusi trip, fee per kg, papan harga, dan kontrak API Lumbung. Di luar batas: resep dapur milik Pawonee, harga ecer pasar milik Pasaree, routing last-mile milik Pedaree, skema titip milik TitipO, dan audit independen milik Titeny. Komoditas di luar cabai, bawang, dan sayur daun masuk versi berikutnya setelah pilot lulus.
