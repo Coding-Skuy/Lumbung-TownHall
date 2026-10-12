@@ -2,6 +2,9 @@
 
 > Selamat datang, Pengelana. Anda berada di jantung dokumentasi Lumbung.
 > Pilih jalan Anda untuk memahami ekosistem ChefGenie.
+>
+> **Tautan ke visi:** Lumbung adalah hulu visi ChefGenie — 40 petani, sortir
+> Grade A/B/C, fee/kg transparan. Lihat [VISI-MISI](../../VISI-MISI.md).
 
 ---
 
